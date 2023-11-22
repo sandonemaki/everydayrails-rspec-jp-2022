@@ -61,7 +61,7 @@ RSpec.describe User, type: :model do
     #  last_name:  "Doe",
     #  email:      "johndoe@example.com",
     #)
-    FactoryBot.build(:user, first_name: "John", last_name: "Doe")
+    user = FactoryBot.build(:user, first_name: "John", last_name: "Doe")
     expect(user.name).to eq "John Doe"
   end
 end
