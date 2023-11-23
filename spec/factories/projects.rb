@@ -6,21 +6,18 @@ FactoryBot.define do
     association :owner
 
     # 昨⽇が締め切りのプロジェクト
-    factory :project_due_yesterday do
+    trait :project_due_yesterday do
       due_on { 1.day.ago }
-      association :owner
     end
 
     # 今⽇が締め切りのプロジェクト
-    factory :project_due_today do
+    trait :project_due_today do
       due_on { Date.current.in_time_zone }
-      association :owner
     end
 
     # 明⽇が締め切りのプロジェクト
-    factory :project_due_tomorrow do
+    trait :project_due_tomorrow do
       due_on { 1.day.from_now }
-      association :owner
     end
   end
 end
