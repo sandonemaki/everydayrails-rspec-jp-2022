@@ -5,6 +5,15 @@ FactoryBot.define do
     due_on { 1.week.from_now }
     association :owner
 
+    # メモ付きのプロジェクト
+    trait :with_notes do
+      # FactoryBot のメソッドの一つで、指定した数だけテストデータを生成し、データベースに保存するために使用される
+      after(:create) { |project| create_list(:note, 5, project: project)}
+    end
+
+
+
+
     # 昨⽇が締め切りのプロジェクト
     trait :project_due_yesterday do
       due_on { 1.day.ago }
